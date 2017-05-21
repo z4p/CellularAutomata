@@ -1,0 +1,98 @@
+.state1mono {
+    background-color: #CCC;
+}
+
+.state2mono {
+    background-color: #333;
+}
+
+.state0 {
+    background-color: #CCC;
+}
+
+.state1 {
+    background-color: #333;
+}
+
+.state2 {
+    background-color: #F33;
+}
+
+.state3 {
+    background-color: #33F;
+}
+
+.state4 {
+    background-color: #3F3;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+.td8 {
+    width: 64px;
+    height: 64px;
+}
+
+.td16 {
+    width: 32px;
+    height: 32px;
+}
+
+.td32 {
+    width: 16px;
+    height: 16px;
+}
+
+.td64 {
+    width: 8px;
+    height: 8px;
+}
+
+td {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #ccc;
+}
+
+.canv {
+    background-color: #999;
+    position: absolute;
+    text-align: center;
+    margin: 5px;
+    padding: 20px;
+    display: none;
+    opacity: 0.9;
+}
+
+.canv canvas {
+    display: inline-block;
+}
+
+td:hover {
+    border: 1px solid #666;
+}
+
+.area {
+    width: 600px;
+    float: left;
+}
+
+#control {
+    width: 200px;
+    float: left;
+    vertical-align: middle;
+}
+
+select {
+	width: 200px;
+}
+
+button {
+    display: inline-block;
+    width: 100px;
+}
