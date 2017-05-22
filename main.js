@@ -124,7 +124,7 @@ CellularAutomaton.prototype = {
     
     randomSoup: function () {
         for(var i = 0; i < this.height; i++) {
-            for(var j = 0; j < this.height; j++) {
+            for(var j = 0; j < this.width; j++) {
                 this.a[i][j] = Math.floor(Math.random() * this.maxStateValue);
             }
         }
@@ -138,7 +138,7 @@ CellularAutomaton.prototype = {
         this.a = new Array(64);
         for(var i = 0; i < this.height; i++) {
             this.a[i] = new Array(64);
-            for(var j = 0; j < this.height; j++) {
+            for(var j = 0; j < this.width; j++) {
                 this.a[i][j] = 0;
             }
         }
@@ -262,22 +262,22 @@ CellularAutomaton.prototype = {
         $("<option value='8'>8x8</option>").appendTo( sizeSelect );
 		$("<option value='16'>16x16</option>").appendTo( sizeSelect );
 		$("<option value='32' selected>32x32</option>").appendTo( sizeSelect );
+		$("<option value='64'>64x64</option>").appendTo( sizeSelect );
 		$("<option value='other'>другой размер</option>").appendTo( sizeSelect );
-		//$("<option value='64'>64x64</option>").appendTo( sizeSelect );
 		sizeSelect.onchange = function() {
             if ($(this).val() === 'other') {
                 that.width = prompt("Ширина поля","32");
                 that.height = prompt("Высота поля","32");
-                that.a = new Array(that.width);
+                that.a = new Array(that.height);
                 for(var i = 0; i < that.height; i++) {
-                    that.a[i] = new Array(64);
-                    for(var j = 0; j < that.height; j++) {
+                    that.a[i] = new Array(that.width);
+                    for(var j = 0; j < that.width; j++) {
                         that.a[i][j] = 0;
                     }
                 }
             } else {
                 that.width = $(this).val();
-                that.height = that.width;
+                that.height = $(this).val();
             }
             that.redraw();
 		}
@@ -347,7 +347,7 @@ CellularAutomaton.prototype = {
         var c = 0;
         for(var a = i-1; a <= i+1; a++)
             for(var b = j-1; b <= j+1; b++)
-                if (a >= 0 && b >= 0 && a < this.width && b < this.height) {
+                if (a >= 0 && b >= 0 && a < this.height && b < this.width) {
                     c += this.a[a][b];
                 }
         return c % this.maxStateValue;
@@ -357,7 +357,7 @@ CellularAutomaton.prototype = {
         var c = 0;
         for(var a = i-1; a <= i+1; a++)
             for(var b = j-1; b <= j+1; b++)
-                if (a >= 0 && b >= 0 && a < this.width && b < this.height) {
+                if (a >= 0 && b >= 0 && a < this.height && b < this.width) {
                     c += this.a[a][b];
                 }
         return Math.round(c/9);
@@ -367,7 +367,7 @@ CellularAutomaton.prototype = {
         var c = 0;
         for(var a = i-1; a <= i+1; a++)
             for(var b = j-1; b <= j+1; b++)
-                if (a >= 0 && b >= 0 && a < this.width && b < this.height && !(a == i && b == j)) {
+                if (a >= 0 && b >= 0 && a < this.height && b < this.width && !(a == i && b == j)) {
                     c += this.a[a][b];
                 }
         if (this.a[i][j] === 0 && c == 3) return 1;
@@ -380,7 +380,7 @@ CellularAutomaton.prototype = {
         var c2 = 0;
         for(var a = i-1; a <= i+1; a++)
             for(var b = j-1; b <= j+1; b++)
-                if (a >= 0 && b >= 0 && a < this.width && b < this.height && !(a == i && b == j)) {
+                if (a >= 0 && b >= 0 && a < this.height && b < this.width && !(a == i && b == j)) {
                     if(this.a[a][b] === 1) c1++;
                     else c2++;
                 }
@@ -476,10 +476,12 @@ CellularAutomaton.prototype = {
     redraw: function() {
         $( this.DOMTable ).empty();
         var that = this;
+		var ticks_text = "Тактов: "+this.ticks;
+		
         if (this.loop !== 0) {
-            $( this.txtInfo ).text("Длина цикла: "+this.loop);
+            $( this.txtInfo ).text("Длина цикла: "+this.loop+"\n"+ticks_text);
         } else {
-            $( this.txtInfo ).text("");
+            $( this.txtInfo ).text(ticks_text);
         }
         for(var i = 0; i < this.height; i++) {
             var tRow = document.createElement('TR');
@@ -491,6 +493,9 @@ CellularAutomaton.prototype = {
                 tCell.onclick = function() {
                     var i = this.getAttribute('rowNum');
                     var j = this.getAttribute('colNum');
+					if (isNaN(that.a[i][j])) {
+						that.a[i][j] = 0;
+					}
                     that.a[i][j] = (that.a[i][j] + 1) % that.maxStateValue;
                     //                    console.log(i, j, that.a[i][j]);
                     that.redraw();
