@@ -12,14 +12,121 @@
     } );
     </script>
     <title>Клеточный автомат</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div align="center" id="cellAutom">
+    <div id="cellAutom">
         <div class="area">
+			<table id="cellArea" style="border-collapse: separate;"></table>
         </div>
+		
+		
+		
         <div id="control">
-        </div>
+			<p class="">
+				<button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#myModal">Настройки автомата</button>
+			</p>
+			
+			<div class="form-group">
+				<label>Выполнить шагов</label>
+				<div class="input-group">
+					<input class="form-control" id="stepCount" value="1">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" id="btnSteps">старт</button>
+					</span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label>Задать состояние:</label>
+				<div class="btn-group" role="group" aria-label="pre-setting-states">
+					<button class="btn btn-default" id="btnClear">Пустое</button>
+					<button class="btn btn-default" id="btnFill">Заполненное</button>
+					<button class="btn btn-default" id="btnSoup">Бульон</button>
+					<button class="btn btn-default" id="btnNoise">Шум</button>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label>Сохранённые</label>
+				<select class="form-control" size="8" id="states"></select>
+				
+				<div class="btn-group" role="group" aria-label="saved-states">
+					<button class="btn btn-default" id="btnSave">Сохранить</button>
+					<button class="btn btn-default" id="btnDelete">Удалить</button>
+					<button class="btn btn-default" id="btnLoad">Загрузить</button>
+				</div>
+			</div>
+			
+			<p id="caInfo">Тактов: 0</p>
+			<button class="btn btn-default" id="btnReset">Сброс</button>
+		</div>
     </div>
+	
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Настройки автомата</h4>
+      </div>
+      <div class="modal-body">
+	  <div class="form-group">
+				<label>Поле</label>
+				<select class="form-control" id="size">
+					<option value="8">8x8</option>
+					<option value="16">16x16</option>
+					<option value="32" selected="">32x32</option>
+					<option value="64">64x64</option>
+					<option value="other">другой размер</option>
+				</select>
+			</div>
+				
+			<div class="form-group">
+				<label>Шаг анимации</label>
+				<select class="form-control" id="delay">
+					<option value="100">100 мс</option>
+					<option value="200">200 мс</option>
+					<option value="500">500 мс</option>
+					<option value="1000">1000 мс</option>
+				</select>
+			</div>
+				
+			<div class="form-group">
+				<label>Число состояний</label>
+				<select class="form-control" id="statecount">
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+				</select>
+			</div>
+			
+			
+			<div class="form-group">
+				<label>Правило перехода:</label>
+				<select class="form-control" id="rule">
+					<option value="0">Сумма (окресность Мура)</option>
+					<option value="4">Сумма (окресность Неймана)</option>
+					<option value="1">Голосование</option>
+					<option value="2">Игра 'Жизнь'</option>
+					<option value="3">Циклический</option>
+				</select>
+			</div>
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Назад</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
