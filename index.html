@@ -1,132 +1,102 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="main.css" />
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript">
-    $(document).ready( function() {
-        console.log('Good news for everyone!'); 
-        var ca = new CellularAutomaton('lab');
-    } );
-    </script>
-    <title>Клеточный автомат</title>
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
 
-<body>
-    <div id="cellAutom">
-        <div class="area">
-			<table id="cellArea" style="border-collapse: separate;"></table>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Программные и аппаратные реализации клеточных автоматов</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="svg_icons/aperture.svg" style="height: 30px;"></a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Главная <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="author.html">Об авторе</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="referat.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Реферат</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="files/referat.pdf" target="_blank">Скачать в PDF</a>
+              <a class="dropdown-item" href="files/referat.docx" target="_blank">Скачать в DOCX</a>
+              <a class="dropdown-item" href="presentation.html">Презентация</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Программные и аппаратные реализации клеточных автоматов</h1>
+        <p>Здесь вы можете ознакомиться с соответствующим рефератом, ознакомиться с презентацией, а также краткой биографией автора работы.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" id="btnScrollDown" role="button">Читать далее</a></p>
+      </div>
+    </div>
+
+    <div class="container" id="content__main">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Реферат</h2>
+		  <p>Клеточные автоматы были задуманы в конце сороковых годов двадцатого века Дж. фон Нейманом и К. Цусе как универсальная вычислительная среда для построения алгоритмов, эквивалентная по своим выразительным возможностям машине Тьюринга. Клеточный автомат представляет собой...</p>
+          <p><a class="btn btn-secondary" href="files/referat.pdf" role="button">Читать далее &raquo;</a></p>
         </div>
 		
+		<div class="col-md-4">
+          <h2>Презентация работы</h2>
+          <p>В зависимости от требований задачи может быть уместно использовать аппаратные либо программные средства реализации клеточных автоматов. К аппаратным средствам относятся аппаратные и аппаратно-программные системы, которые выполняют задачу...</p>
+          <p><a class="btn btn-secondary" href="presentation.html" role="button">Читать далее &raquo;</a></p>
+        </div>
 		
-		
-        <div id="control">
-			<p class="">
-				<button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#myModal">Настройки автомата</button>
-			</p>
-			
-			<div class="form-group">
-				<label>Выполнить шагов</label>
-				<div class="input-group">
-					<input class="form-control" id="stepCount" value="1">
-					<span class="input-group-btn">
-						<button class="btn btn-primary" id="btnSteps">старт</button>
-					</span>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label>Задать состояние:</label>
-				<div class="btn-group" role="group" aria-label="pre-setting-states">
-					<button class="btn btn-default" id="btnClear">Пустое</button>
-					<button class="btn btn-default" id="btnFill">Заполненное</button>
-					<button class="btn btn-default" id="btnSoup">Бульон</button>
-					<button class="btn btn-default" id="btnNoise">Шум</button>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label>Сохранённые</label>
-				<select class="form-control" size="8" id="states"></select>
-				
-				<div class="btn-group" role="group" aria-label="saved-states">
-					<button class="btn btn-default" id="btnSave">Сохранить</button>
-					<button class="btn btn-default" id="btnDelete">Удалить</button>
-					<button class="btn btn-default" id="btnLoad">Загрузить</button>
-				</div>
-			</div>
-			
-			<p id="caInfo">Тактов: 0</p>
-			<button class="btn btn-default" id="btnReset">Сброс</button>
-		</div>
-    </div>
-	
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Настройки автомата</h4>
+        <div class="col-md-4">
+          <h2>Об авторе</h2>
+          <p>Автор реферата - Радкевич Павел Вячеславович.</p>
+		  <p>Родился в 1993 году в Минске. В 2013 году окончил с отличием Минский государственный высший радиотехнический колледж по специальности "Программное обеспечение информационных технологий"...</p>
+          <p><a class="btn btn-secondary" href="author.html" role="button">Читать далее &raquo;</a></p>
+       </div>
       </div>
-      <div class="modal-body">
-	  <div class="form-group">
-				<label>Поле</label>
-				<select class="form-control" id="size">
-					<option value="8">8x8</option>
-					<option value="16">16x16</option>
-					<option value="32" selected="">32x32</option>
-					<option value="64">64x64</option>
-					<option value="other">другой размер</option>
-				</select>
-			</div>
-				
-			<div class="form-group">
-				<label>Шаг анимации</label>
-				<select class="form-control" id="delay">
-					<option value="100">100 мс</option>
-					<option value="200">200 мс</option>
-					<option value="500">500 мс</option>
-					<option value="1000">1000 мс</option>
-				</select>
-			</div>
-				
-			<div class="form-group">
-				<label>Число состояний</label>
-				<select class="form-control" id="statecount">
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-				</select>
-			</div>
-			
-			
-			<div class="form-group">
-				<label>Правило перехода:</label>
-				<select class="form-control" id="rule">
-					<option value="0">Сумма (окресность Мура)</option>
-					<option value="4">Сумма (окресность Неймана)</option>
-					<option value="1">Голосование</option>
-					<option value="2">Игра 'Жизнь'</option>
-					<option value="3">Циклический</option>
-				</select>
-			</div>
-	  </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Назад</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-</body>
+      <hr>
+
+      <footer>
+        <p>&copy; Радкевич Павел 2017-2018</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	
+	<script>
+	$('#btnScrollDown').click(function(){
+		$('html, body').animate({
+            scrollTop: $("#content__main").offset().top
+        }, 700);
+	});
+	</script>
+  </body>
 </html>
