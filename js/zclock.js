@@ -8,7 +8,12 @@ class ZCloudteamClock {
 
         this.clock_root.addEventListener('touchstart', (e) => {
             e.preventDefault();
-            // TODO add some config options here
+            this.toggleFullscreen();
+        });
+
+        this.clock_root.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.toggleFullscreen();
         });
 
         setInterval(function() {
@@ -29,5 +34,15 @@ class ZCloudteamClock {
 
         this.clock_hh.innerHTML = hours.toString();
         this.clock_mm.innerHTML = minutes.toString();
+    }
+
+    toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
     }
 }

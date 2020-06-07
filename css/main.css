@@ -1,16 +1,13 @@
 body {
     background-color: #000000;
+    overflow: hidden;
 }
 
 .clock {
     display: flex;
     justify-content: center;
-    margin: 10vh 0;
+    margin: 5vh 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 70vh;
     color: #aaaaaa;
-}
-
-.clock .clock_inverse {
-
 }
