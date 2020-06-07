@@ -8,7 +8,7 @@ class ZCloudteamClock {
 
         this.clock_root.addEventListener('touchstart', (e) => {
             e.preventDefault();
-            self.clock_root.classList.toggle('.clock_inverse');
+            // TODO add some config options here
         });
 
         setInterval(function() {
@@ -18,7 +18,16 @@ class ZCloudteamClock {
 
     redraw() {
         let time = new Date();
-        this.clock_hh.innerHTML = time.getHours().toString();
-        this.clock_mm.innerHTML = time.getMinutes().toString();
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+
+        this.clock_hh.innerHTML = hours.toString();
+        this.clock_mm.innerHTML = minutes.toString();
     }
 }

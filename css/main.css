@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 10vh 0;
-    font-family: Roboto, monospace;
+    font-family: 'Open Sans', sans-serif;
     font-size: 70vh;
     color: #aaaaaa;
 }
