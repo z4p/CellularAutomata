@@ -1,103 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="favicon.ico">
-
-
-    <title>Программные и аппаратные реализации клеточных автоматов</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img src="svg_icons/aperture.svg" style="height: 30px;"></a>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Главная <span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="author.html">Об авторе</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="referat.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Реферат</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="files/referat.pdf" target="_blank">Скачать в PDF</a>
-              <a class="dropdown-item" href="files/referat.docx" target="_blank">Скачать в DOCX</a>
-              <a class="dropdown-item" href="presentation.html">Презентация</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">Программные и аппаратные реализации клеточных автоматов</h1>
-        <p>Здесь вы можете ознакомиться с соответствующим рефератом, презентацией, а также краткой биографией автора работы.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" id="btnScrollDown" role="button">Читать далее</a></p>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <title>ZCloudteam Clock</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/zclock.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            new ZCloudteamClock('.clock');
+        });
+    </script>
+</head>
+<body>
+    <div class="clock">
+        <div class="clock__hh">11</div>
+        <div class="clock__separator">:</div>
+        <div class="clock__mm">22</div>
     </div>
-
-    <div class="container" id="content__main">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Реферат</h2>
-		  <p>Клеточные автоматы были задуманы в конце сороковых годов двадцатого века Дж. фон Нейманом и К. Цусе как универсальная вычислительная среда для построения алгоритмов, эквивалентная по своим выразительным возможностям машине Тьюринга. Клеточный автомат представляет собой...</p>
-          <p><a class="btn btn-secondary" href="files/referat.pdf" role="button">Читать далее &raquo;</a></p>
-        </div>
-		
-		<div class="col-md-4">
-          <h2>Презентация работы</h2>
-          <p>В зависимости от требований задачи может быть уместно использовать аппаратные либо программные средства реализации клеточных автоматов. К аппаратным средствам относятся аппаратные и аппаратно-программные системы, которые выполняют задачу...</p>
-          <p><a class="btn btn-secondary" href="presentation.html" role="button">Читать далее &raquo;</a></p>
-        </div>
-		
-        <div class="col-md-4">
-          <h2>Об авторе</h2>
-          <p>Автор реферата - Радкевич Павел Вячеславович.</p>
-		  <p>Родился в 1993 году в Минске. В 2013 году окончил с отличием Минский государственный высший радиотехнический колледж по специальности "Программное обеспечение информационных технологий"...</p>
-          <p><a class="btn btn-secondary" href="author.html" role="button">Читать далее &raquo;</a></p>
-       </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Радкевич Павел 2017-2018</p>
-      </footer>
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	
-	<script>
-	$('#btnScrollDown').click(function(){
-		$('html, body').animate({
-            scrollTop: $("#content__main").offset().top
-        }, 700);
-	});
-	</script>
-  </body>
+</body>
 </html>
