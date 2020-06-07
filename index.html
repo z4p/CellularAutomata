@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>ZCloudteam Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
     <script src="js/zclock.js"></script>
     <script>
         window.addEventListener('load', () => {
             new ZCloudteamClock('.clock');
         });
     </script>
+
+
+    <link rel="manifest" href="/manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="ZClock">
+    <meta name="apple-mobile-web-app-title" content="ZClock">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="images/clock.png" type="image/png">
+    <link rel="icon" href="images/clock.png">
+    <link rel="apple-touch-icon" href="images/clock.png">
 </head>
 <body>
     <div class="clock">
-        <div class="clock__hh">11</div>
+        <div class="clock__hh">14</div>
         <div class="clock__separator">:</div>
-        <div class="clock__mm">22</div>
+        <div class="clock__mm">88</div>
     </div>
 </body>
 </html>

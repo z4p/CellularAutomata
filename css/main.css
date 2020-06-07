@@ -1,13 +1,27 @@
+body, html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
     background-color: #000000;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .clock {
     display: flex;
     justify-content: center;
-    margin: 5vh 0;
+    align-items: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 70vh;
     color: #aaaaaa;
+    user-select: none;
+}
+
+@media (max-aspect-ratio: 8/5) {
+    .clock {
+        font-size: 30vw;
+    }
 }
