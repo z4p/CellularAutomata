@@ -1,27 +1,68 @@
 body, html {
     overflow: hidden;
     height: 100%;
+    background-color: #000000;
 }
 
-body {
-    background-color: #000000;
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #000000;
+}
+
+.toolbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.toolbar .toolbar__button {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #888;
+    font-size: 12pt;
+    cursor: pointer;
 }
 
 .clock {
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 70vh;
-    color: #aaaaaa;
+    color: #FFF;
     user-select: none;
 }
 
+.clock .time {
+    display: flex;
+    flex-flow: row;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 60vh;
+}
+
+.clock .date {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 5vh;
+}
+
 @media (max-aspect-ratio: 8/5) {
-    .clock {
+    .clock .time {
         font-size: 30vw;
     }
+}
+
+
+.modal {
+    display: none;
+}
+
+.modal.modal_show {
+    display: block;
 }
